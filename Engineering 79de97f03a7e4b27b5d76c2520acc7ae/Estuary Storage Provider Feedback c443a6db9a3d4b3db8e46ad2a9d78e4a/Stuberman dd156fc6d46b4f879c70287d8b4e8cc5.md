@@ -1,0 +1,54 @@
+# Stuberman
+
+- still see tons of errors
+    - when I look at logs, success rate is very low (3-5% success rate)
+    - lots of reasons why they are unsuccessful
+- for SPs, Estuary is not providing (wants to make deals, but don’t succeed for one reason or another)
+    - whole bunch of different reasons
+    - small deals
+        - restrict the amt of very small deals
+        - when you try to send 64 MB deal, some providers block them, b/c they don’t want to seal a 32 GiB sector with only a small amt of data
+        - Stu raised his prices a bit (some parameters) - those get rejected b/c payment is required (but Estuary is not paying for deals)
+        - part of it - some serious technical problems with small deals
+            - 1 bad deal will ruin the whole batch
+            - not sure what the approach would be - so providers could understand what to do
+            - not worth the headache
+- graphsync issues still
+    - waiting for data mode - never complete
+    - many attempts of trying to send data but it never gets sent
+    - deals will timeout and die
+- Source wallet (track and manage deals) is always the same, but have multiple senders of deals from around the world (shuttle mechanism)
+    - some of the shuttles are very reliable, some are unreliable
+    - no way in lotus logs to discriminate between them
+    - inspect log, go into verbose mode, and figure out which shuttle is unreliable
+    - “these guys are sending me data that always fails” “these are kind of reliable”
+    - don’t know who it’s from
+- business problems
+    - difficult to estimate capacity relative to amt of deal requests coming in
+    - bidbot deals are very reliable (many per day, that all succeed)
+    - business perspective - wants reliable customers (bidbot), Estuary is noisy (ppl have given up on it, what’s the point)
+    - unclear status update on what’s been fixed vs. not
+    - as an SP, success rate is super low
+- sense of what’s available
+    - if i’m having problems with one particular Estuary node or shuttle, can I block it temporarily
+    - which SPs are using boost
+    - just information - tell me as an SP that uses Estuary, what are things that they should be aware of, what to optimize to ensure the experience is good
+    - how to leverage something like CIDgravity for all things
+- testing different types of deals
+    - a lot of small deals, large deals, verified, unverified, paid, unpaid
+    - scaling things is when stuff breaks —> scaling always matters
+    - different reactions from diff storage providers (he uses rate limiting with CID Gravity)
+    - reset things back to normal with release of a new code —> ideally have a constrained test that focuses on something
+- StorageDealWaitingForData
+    - guess - too many deals coming in at the same time (rush of deals)
+    - then graphsync fails (graphsync is good if you do it one at a time, but that doesn’t really happen)
+    - can’t restart it and it gets stuck
+        - nothing is happening
+        - partial transfer (system thinks its happening but it is stuck)
+            - useless data getting put in markets node but can’t get restarted
+            - sometimes try cancelling and hope it will restart
+- logs aren’t detailed enough to figure out what the issue is
+    - needs deeper diagnosis
+    - sometimes logs are super clear
+    - a lot of graphsync errors don’t show as graphsync errors
+    - estuary specific errors are difficult to figure out (running out of cache, restarting shuttles, etc.)

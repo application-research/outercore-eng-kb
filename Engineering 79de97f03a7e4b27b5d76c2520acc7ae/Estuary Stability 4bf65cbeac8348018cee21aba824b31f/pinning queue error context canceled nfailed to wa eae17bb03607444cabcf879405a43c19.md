@@ -1,0 +1,9 @@
+# pinning queue error: context canceled\nfailed to walk DAG\nmain.
+
+```html
+{"level":"error","ts":"2022-08-27T01:32:30.666Z","logger":"pinner","caller":"pinner/pinmgr.go:308","msg":"pinning queue error: context canceled\nfailed to walk DAG\nmain.(*Shuttle).addDatabaseTrackingToContent\n\t/home/ubuntu/estuary-rb/cmd/estuary-shuttle/main.go:1623\nmain.(*Shuttle).doPinning\n\t/home/ubuntu/estuary-rb/cmd/estuary-shuttle/main.go:1509\ngithub.com/application-research/estuary/pinner.(*PinManager).doPinning\n\t/home/ubuntu/estuary-rb/pinner/pinmgr.go:192\ngithub.com/application-research/estuary/pinner.(*PinManager).pinWorker\n\t/home/ubuntu/estuary-rb/pinner/pinmgr.go:307\nruntime.goexit\n\t/snap/go/9854/src/runtime/asm_arm64.s:1263\nfailed to addDatabaseTrackingToContent - contID(19830008), cid(bafkreigbxgtgijojrfqms7sem2f4uho5hwqojgo25bz5rxwsfsaaq3giha)\nmain.(*Shuttle).doPinning\n\t/home/ubuntu/estuary-rb/cmd/estuary-shuttle/main.go:1519\ngithub.com/application-research/estuary/pinner.(*PinManager).doPinning\n\t/home/ubuntu/estuary-rb/pinner/pinmgr.go:192\ngithub.com/application-research/estuary/pinner.(*PinManager).pinWorker\n\t/home/ubuntu/estuary-rb/pinner/pinmgr.go:307\nruntime.goexit\n\t/snap/go/9854/src/runtime/asm_arm64.s:1263\nshuttle RunPinFunc failed\ngithub.com/application-research/estuary/pinner.(*PinManager).doPinning\n\t/home/ubuntu/estuary-rb/pinner/pinmgr.go:202\ngithub.com/application-research/estuary/pinner.(*PinManager).pinWorker\n\t/home/ubuntu/estuary-rb/pinner/pinmgr.go:307\nruntime.goexit\n\t/snap/go/9854/src/runtime/asm_arm64.s:1263"}
+```
+
+## Discussions
+
+## Related PRs
