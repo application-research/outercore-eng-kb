@@ -90,6 +90,65 @@ A dynamic PoR storage network typically has the following components:
 
 6. Incentivization: An incentivization mechanism rewards nodes for contributing storage to the network and for providing valid dynamic PoR.
 
+### Example Node Implementation
+
+```golang
+package main
+
+import (
+	"context"
+	"fmt"
+	"time"
+
+	libp2p "github.com/libp2p/go-libp2p"
+	core "github.com/libp2p/go-libp2p-core"
+	swarm "github.com/libp2p/go-libp2p-swarm"
+)
+
+func main() {
+	// Create a new libp2p host
+	host, err := libp2p.New(context.Background())
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	// Hash of the IPFS content to be verified
+	hash := "/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco"
+
+	// Start the timer
+	start := time.Now()
+
+	// Attempt to retrieve the content
+	content, err := swarm.Get(context.Background(), host, hash)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	defer content.Close()
+
+	// Calculate the download time
+	elapsed := time.Since(start)
+
+	// Verify the content
+	// In this case, we're just checking if the content is not empty
+	// In real-world scenarios, you would want to use a more robust verification method
+	if len(content) == 0 {
+		fmt.Println("Failed to retrieve content")
+    // TODO: send message to FEVM
+		return
+	}
+  
+  // TODO: send calculated download speed to FEVM contract
+
+	// Print the download time
+	fmt.Printf("Content retrieved in %s\n", elapsed)
+}
+```
+
+This example is a simple program that creates a new libp2p host, uses it to retrieve the content with the provided hash and it tracks the time taken to retrieve the content. Then it verifies that the retrieved content is not empty. This program is meant to be a simple example and in a real-world scenario you would want to use a more robust verification method.
+
+
 ## Smart Contract Security Considerations
 - The smart contract will be tested and audited to ensure that it is free from vulnerabilities.
 - Access to the smart contract functions will be restricted to authorized users using access control mechanisms.
