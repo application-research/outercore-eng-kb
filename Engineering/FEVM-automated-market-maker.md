@@ -1,4 +1,4 @@
-# Proposal: Automated Market Maker
+# Proposal: FEVM Automated Market Maker
 
 | Author | Jay Logelin |
 | --- | --- |
