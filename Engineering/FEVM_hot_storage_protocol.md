@@ -30,7 +30,7 @@ The function will return the file data to the user.
 
 The function will also check the FEVM address of the user calling the function to ensure that they are the owner of the file, before returning the file data.
 
-The function will be called getFile(string _ipfsHash) public view returns (bytes memory)
+The function will be called `getFile(string _ipfsHash) public view returns (bytes memory)`
 
 The user need to call getFile(ipfsHash) function with the correct ipfs hash of the file they want to retrieve, and the function will check the authenticity of the hash and return the bytes of the file if the hash is correct and the user is the owner of the file.
 
