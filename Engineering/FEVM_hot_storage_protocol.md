@@ -7,7 +7,7 @@
 
 ## Proposal/Overview
 
-This smart contract allows for the storage and retrieval of files on the InterPlanetary File System (IPFS) using the FEVM blockchain. The smart contract will be deployed on the FEVM network and will allow users to upload and access files stored on IPFS using their FEVM address. Additionally, a simple layer 2 network using [Dynamic Proofs of Retrievability](https://www.usenix.org/conference/usenixsecurity21/presentation/anthoine#:~:text=Proofs%20of%20Retrievability%20(PoRs)%20are,small%20portion%20of%20the%20data.) will be used to validate storage across the network.
+This smart contract allows for the storage and retrieval of files on the InterPlanetary File System (IPFS) using a layer 2 DSN and an EVM blockchain. The smart contract will be deployed on the FEVM network and will allow users to upload and access files stored on IPFS using their FEVM address. Additionally, a simple layer 2 network using [Dynamic Proofs of Retrievability](https://www.usenix.org/conference/usenixsecurity21/presentation/anthoine#:~:text=Proofs%20of%20Retrievability%20(PoRs)%20are,small%20portion%20of%20the%20data.) will be used to validate storage across the network.
 
 ## Design
 
