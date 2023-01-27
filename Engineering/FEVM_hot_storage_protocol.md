@@ -9,7 +9,7 @@
 
 This smart contract allows for the storage and retrieval of files on the InterPlanetary File System (IPFS) using the FEVM blockchain. The smart contract will be deployed on the FEVM network and will allow users to upload and access files stored on IPFS using their Ethereum address. Additionally, a simple layer 2 network using [Dynamic Proofs of Retrievability](https://www.usenix.org/conference/usenixsecurity21/presentation/anthoine#:~:text=Proofs%20of%20Retrievability%20(PoRs)%20are,small%20portion%20of%20the%20data.) will be used to validate storage across the network.
 
-## Functionality
+## Design
 
 A decentralized hot storage network with IPFS and dynamic proofs of retrievability, you would need to take the following steps:
 
@@ -91,19 +91,37 @@ In addition, the smart contract can also be used to track the reputation of node
 
 Overall, using libp2p for peer-to-peer communication and file transfer and Ethereum smart contracts for decentralized storage marketplaces and proof of retrievability can be a powerful combination for building a decentralized, secure, and reliable network for large file storage and retrieval.
 
+## Components
+
+A dynamic PoR storage network typically has the following components:
+
+1. Nodes: These are the devices that participate in the network and offer their storage space to store files.
+
+2. File fragmentation: Files are broken down into smaller pieces, called fragments, and these fragments are distributed across the network to different nodes.
+
+3. Merkle Tree: A Merkle tree is constructed from the fragments, which allows for the efficient verification of data integrity without having to retrieve the entire file.
+
+4. Smart Contract: A smart contract on a blockchain platform is used to track the storage and retrieval of files on the network. It also enforces the dynamic PoR and manages the reputation of nodes.
+
+5. Network communication: Nodes communicate with each other through a peer-to-peer network protocol, such as IPFS, to transfer files and verify proofs of retrievability.
+
+6. Incentivization: An incentivization mechanism rewards nodes for contributing storage to the network and for providing valid dynamic PoR.
+
 ## Smart Contract Security Considerations
-The smart contract will be tested and audited to ensure that it is free from vulnerabilities.
-Access to the smart contract functions will be restricted to authorized users using access control mechanisms.
-The smart contract will include a function to check the authenticity of the file hash to prevent tampering.
-Deployment and Maintenance
-The smart contract will be deployed on the FEVM network using a deployment tool such as Truffle.
-The smart contract will require regular maintenance to ensure that it remains secure and functional.
-The smart contract will be versioned to allow for updates and bug fixes to be deployed.
-User Interface
-Users can interact with the smart contract using a web3 enabled browser or a wallet that support smart contract interaction like MetaMask.
-A simple user interface will be built to make it easy for users to interact with the smart contract and perform actions such as uploading and retrieving files.
-The user interface will display the IPFS file hash and the FEVM address of the user who uploaded the file.
-The user interface will also include a function to verify the authenticity of the file hash.
+- The smart contract will be tested and audited to ensure that it is free from vulnerabilities.
+- Access to the smart contract functions will be restricted to authorized users using access control mechanisms.
+- The smart contract will include a function to check the authenticity of the file hash to prevent tampering.
+
+## Deployment and Maintenance
+- The smart contract will be deployed on the FEVM network using a deployment tool such as Truffle.
+- The smart contract will require regular maintenance to ensure that it remains secure and functional.
+- The smart contract will be versioned to allow for updates and bug fixes to be deployed.
+
+## User Interface
+- Users can interact with the smart contract using a web3 enabled browser or a wallet that support smart contract interaction like MetaMask.
+- A simple user interface will be built to make it easy for users to interact with the smart contract and perform actions such as uploading and retrieving files.
+- The user interface will display the IPFS file hash and the FEVM address of the user who uploaded the file.
+- The user interface will also include a function to verify the authenticity of the file hash.
 
 ## Alternatives Considered
 
@@ -120,4 +138,4 @@ This smart contract allows for the storage and retrieval of files on IPFS using 
 - [ ]  Documentation
 
 ## References
-Dynamic proofs of retrievability with low server storage. https://www.usenix.org/conference/usenixsecurity21/presentation/anthoine#:~:text=Proofs%20of%20Retrievability%20(PoRs)%20are,small%20portion%20of%20the%20data.
+Anthoine, G et al. [Dynamic proofs of retrievability with low server storage](https://www.usenix.org/conference/usenixsecurity21/presentation/anthoine#:~:text=Proofs%20of%20Retrievability%20(PoRs)%20are,small%20portion%20of%20the%20data). 
