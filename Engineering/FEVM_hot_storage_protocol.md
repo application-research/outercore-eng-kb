@@ -7,7 +7,7 @@
 
 ## Proposal/Overview
 
-This smart contract allows for the storage and retrieval of files on the InterPlanetary File System (IPFS) using the FEVM blockchain. The smart contract will be deployed on the FEVM network and will allow users to upload and access files stored on IPFS using their Ethereum address. Additionally, a simple layer 2 network using Dynamic Proofs of Retrievability will be used to validate storage across the network.
+This smart contract allows for the storage and retrieval of files on the InterPlanetary File System (IPFS) using the FEVM blockchain. The smart contract will be deployed on the FEVM network and will allow users to upload and access files stored on IPFS using their Ethereum address. Additionally, a simple layer 2 network using [Dynamic Proofs of Retrievability](https://www.usenix.org/conference/usenixsecurity21/presentation/anthoine#:~:text=Proofs%20of%20Retrievability%20(PoRs)%20are,small%20portion%20of%20the%20data.) will be used to validate storage across the network.
 
 ## Functionality
 
@@ -29,6 +29,7 @@ A decentralized hot storage network with IPFS and dynamic proofs of retrievabili
 
 Dynamic proofs of retrievability (PoR) is a technique used to ensure the integrity and availability of data stored on a decentralized storage network. The main idea behind dynamic PoR is to allow nodes to prove they have a certain file by providing a small, randomly-selected subset of the file's data, rather than the entire file.
 
+### Security
 The security of dynamic PoR is based on two main principles:
 
 1. Data fragmentation: By breaking the file into smaller pieces and distributing them across the network, it becomes much more difficult for an attacker to tamper with or delete the data.
@@ -90,7 +91,7 @@ In addition, the smart contract can also be used to track the reputation of node
 
 Overall, using libp2p for peer-to-peer communication and file transfer and Ethereum smart contracts for decentralized storage marketplaces and proof of retrievability can be a powerful combination for building a decentralized, secure, and reliable network for large file storage and retrieval.
 
-## Security Considerations
+## Smart Contract Security Considerations
 The smart contract will be tested and audited to ensure that it is free from vulnerabilities.
 Access to the smart contract functions will be restricted to authorized users using access control mechanisms.
 The smart contract will include a function to check the authenticity of the file hash to prevent tampering.
